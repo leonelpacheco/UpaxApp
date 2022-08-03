@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "218310560424",
+    "project_id": "upaxapp",
+    "storage_bucket": "upaxapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218310560424:android:757627a1cd0c8fbbf2509d",
+        "android_client_info": {
+          "package_name": "com.leonel.upaxapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "218310560424-60elpiqcuba97l8ite3op183a8a40mc4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.leonel.upaxapp",
+            "certificate_hash": "877ae0822bb3213ad1c6c17b76a0c9ac0f38017a"
+          }
+        },
+        {
+          "client_id": "218310560424-r4vmqsh603c6iu35olsti13anmkqugtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGZ3uOiGVMuoJ0PmZzc0dtIKh3Iv2UCRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "218310560424-r4vmqsh603c6iu35olsti13anmkqugtg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

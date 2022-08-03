@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">UpaxApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="btn_guardar">Guardar</string>
+
+    <string name="menu_imagestore">Imagen Firebase</string>
+    <string name="menu_dataempleado">Formulario empleado</string>
+    <string name="menu_ubicacionempleado">Negocios</string>
+
+    <!--row_empleado-->
+    <string name="itemuser_txt_empleado">#567100</string>
+    <string name="itemuser_txt_telefono">Telefono</string>
+    <string name="itemuser_txt_email">Email</string>
+    <string name="itemuser_txt_direccion">Dirección</string>
+    <string name="formulario_etxt_empleado">Empleado</string>
+
+</resources>
