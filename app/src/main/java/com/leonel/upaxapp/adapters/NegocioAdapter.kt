@@ -41,7 +41,9 @@ class NegocioAdapter (private val mList: List<negocio>, context:FragmentActivity
         val ItemsViewModel = mList[position]
 
         //if(ItemsViewModel.image.isNotEmpty())
-        val imageUri = Uri.parse(ItemsViewModel.urlImagen)
+        var imageUri: Uri? =null
+        if (ItemsViewModel.urlImagen !=null)
+         imageUri = Uri.parse(ItemsViewModel.urlImagen)
         // sets the image to the imageview from our itemHolder class
         //holder.imageView.setImageResource(ItemsViewModel.poster_path)
 

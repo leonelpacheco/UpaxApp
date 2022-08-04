@@ -7,7 +7,7 @@ import com.leonel.upaxapp.database.dao.negocioDao
 import com.leonel.upaxapp.database.entities.empleadoEntity
 import com.leonel.upaxapp.database.entities.negocioEntity
 
-@Database(entities = [empleadoEntity::class, negocioEntity::class], version = 3)
+@Database(entities = [empleadoEntity::class, negocioEntity::class], version = 4)
 abstract class UpaxDataBase: RoomDatabase() {
 
     abstract fun getEmpleadoDao(): empleadoDao

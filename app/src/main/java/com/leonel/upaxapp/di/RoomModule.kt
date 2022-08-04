@@ -25,4 +25,10 @@ object RoomModule {
     @Provides
     fun provideQuoteDao(db: UpaxDataBase) = db.getEmpleadoDao()
 
+    @Singleton
+    @Provides
+    fun provideNegocioDao(db: UpaxDataBase) = db.getNegocioDao()
+
+
+
 }

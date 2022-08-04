@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.leonel.upaxapp.R
 import com.leonel.upaxapp.adapters.EmpleadoAdapter
@@ -38,19 +39,18 @@ class DataNegocioFragment : Fragment() {
         _binding = FragmentDataNegocioBinding.inflate(inflater, container, false)
         val root: View = binding.root
         binding.rwlistnegocios.layoutManager= LinearLayoutManager(activity)
-        //datanegocioViewModel.onCreate()
-        datanegocioViewModel.insertarusuario()
+        datanegocioViewModel.onCreate()
+        //datanegocioViewModel.insertarusuario()
+
+
+        datanegocioViewModel.isLoading.observe(viewLifecycleOwner){
+            binding.loading.isVisible = it
+        }
 
         datanegocioViewModel.listnegocioModel.observe(viewLifecycleOwner){
             val adapter = activity?.let { it1 -> NegocioAdapter(it, requireActivity()) }
             binding.rwlistnegocios.adapter= adapter
         }
-
-
-
-
-
-
 
         return root
     }

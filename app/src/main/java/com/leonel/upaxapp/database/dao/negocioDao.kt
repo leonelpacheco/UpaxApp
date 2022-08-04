@@ -13,7 +13,7 @@ interface negocioDao {
     suspend fun getAllnegocios():List<negocioEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(negocio: negocioEntity)
+    suspend fun insertAllnegocios(negocios: List<negocioEntity>)
 
     @Query("DELETE FROM negocio_table")
     suspend fun deleteAllnegocios()

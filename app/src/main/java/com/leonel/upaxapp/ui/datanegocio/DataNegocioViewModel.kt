@@ -35,10 +35,10 @@ class DataNegocioViewModel @Inject constructor(private val repository: negocioRe
         val requestneg= requestnegocio(149010)
 
         val negocios = repository.getAllNegociosFromApi(requestneg)
-        return negocios
+        //return negocios
         return if(negocios.isNotEmpty()){
             repository.clearnegocios()
-            //repository.insertnegocio(negocios.map { it.toDataBase() })
+            repository.insertnegocio(negocios.map { it.toDataBase() })
             negocios
         }else{
             repository.getAllNegociosFromDatabase()
@@ -47,7 +47,7 @@ class DataNegocioViewModel @Inject constructor(private val repository: negocioRe
 
     //*************Inserción manual para pruebas por fallo en api**********
 
-    fun insertarusuario(){
+ /*   fun insertarusuario(){
         viewModelScope.launch {
             isLoading.postValue(true)
             val result= invokeinsert()
@@ -62,12 +62,13 @@ class DataNegocioViewModel @Inject constructor(private val repository: negocioRe
     }
 
     suspend  fun invokeinsert():List<negocio>{
+
         var negocioinsert = negocio("30","78","12","97000","Mexico"
         ,"Yucatan","Merida","Centro","20.9803289","-89.7730065","https://sucursales.net/wp-content/uploads/2020/11/starbucks-en-Merida.jpg")
-        repository.insertnegocio(negocioinsert.toDataBase())
+       repository.insertnegocio(negociosinsert.toDataBase())
 
         return repository.getAllNegociosFromDatabase()
 
-    }
+    }*/
     //****************
 }

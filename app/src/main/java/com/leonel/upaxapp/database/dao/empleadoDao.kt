@@ -19,7 +19,7 @@ interface empleadoDao {
     suspend fun deleteAllempleados()
 
     //*******************
-
+/*
     @Query("SELECT * FROM negocio_table ORDER BY id DESC")
     suspend fun getAllnegocios():List<negocioEntity>
 
@@ -27,5 +27,5 @@ interface empleadoDao {
     suspend fun insertAllnegocios(negocio: negocioEntity)
 
     @Query("DELETE FROM negocio_table")
-    suspend fun deleteAllnegocios()
+    suspend fun deleteAllnegocios()*/
 }

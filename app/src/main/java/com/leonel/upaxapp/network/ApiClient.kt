@@ -7,6 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiClient {
-    @POST(Constants.URL_BASE)
+    @POST("comercioDetalleExamen")
     suspend fun getAllnegocios(@Body idZeusComercio: requestnegocio): Response<responsenegocios>
 }
