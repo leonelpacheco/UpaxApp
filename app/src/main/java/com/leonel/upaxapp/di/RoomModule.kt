@@ -19,9 +19,10 @@ object RoomModule {
     @Singleton
     @Provides
     fun provideRoom(@ApplicationContext context: Context) =
-        Room.databaseBuilder(context, UpaxDataBase::class.java, DATABASE_NAME).build()
+        Room.databaseBuilder(context, UpaxDataBase::class.java, DATABASE_NAME).fallbackToDestructiveMigration().build()
 
     @Singleton
     @Provides
     fun provideQuoteDao(db: UpaxDataBase) = db.getEmpleadoDao()
+
 }

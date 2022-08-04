@@ -26,7 +26,10 @@ class negocioRepository @Inject constructor(private val api: ApiService, private
     }
     //**********************
     suspend fun insertnegocio(negocio: negocioEntity){
-        negociodaorep.insertAllnegocios(negocio)
+        try {
+            negociodaorep.insertAllnegocios(negocio)
+        } catch (e: Exception) {
+        }
     }
 
     suspend fun clearnegocios(){

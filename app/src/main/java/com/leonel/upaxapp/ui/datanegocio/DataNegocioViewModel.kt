@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.leonel.upaxapp.database.entities.toDataBase
+import com.leonel.upaxapp.model.empleado
 import com.leonel.upaxapp.model.negocio
 import com.leonel.upaxapp.network.requestnegocio
 import com.leonel.upaxapp.repository.firestoreRepository
@@ -15,12 +16,14 @@ import javax.inject.Inject
 @HiltViewModel
 class DataNegocioViewModel @Inject constructor(private val repository: negocioRepository): ViewModel() {
     val isLoading = MutableLiveData<Boolean>()
+    val listnegocioModel = MutableLiveData<List<negocio>>()
 
     fun onCreate(){
         viewModelScope.launch {
             isLoading.postValue(true)
             val result= invoke()
             if (!result.isNullOrEmpty()) {
+                listnegocioModel.postValue(result!!)
                 isLoading.postValue(false)
             }
             else
@@ -41,4 +44,30 @@ class DataNegocioViewModel @Inject constructor(private val repository: negocioRe
             repository.getAllNegociosFromDatabase()
         }
     }
+
+    //*************Inserción manual para pruebas por fallo en api**********
+
+    fun insertarusuario(){
+        viewModelScope.launch {
+            isLoading.postValue(true)
+            val result= invokeinsert()
+            if (!result.isNullOrEmpty()) {
+                listnegocioModel.postValue(result!!)
+                isLoading.postValue(false)
+            }
+            else
+                isLoading.postValue(false)
+
+        }
+    }
+
+    suspend  fun invokeinsert():List<negocio>{
+        var negocioinsert = negocio("30","78","12","97000","Mexico"
+        ,"Yucatan","Merida","Centro","20.9803289","-89.7730065","https://sucursales.net/wp-content/uploads/2020/11/starbucks-en-Merida.jpg")
+        repository.insertnegocio(negocioinsert.toDataBase())
+
+        return repository.getAllNegociosFromDatabase()
+
+    }
+    //****************
 }

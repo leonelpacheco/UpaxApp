@@ -1,5 +1,6 @@
 package com.leonel.upaxapp.adapters
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,15 +11,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.leonel.upaxapp.R
-import com.leonel.upaxapp.model.empleado
 import com.leonel.upaxapp.model.negocio
 import com.leonel.upaxapp.ui.datanegocio.NegocioMapsFragment
 import com.leonel.upaxapp.utils.ChangeFragment
 
-class NegocioAdapter (private val mList: List<negocio>): RecyclerView.Adapter<NegocioAdapter.ViewHolder>() {
+
+class NegocioAdapter (private val mList: List<negocio>, context:FragmentActivity): RecyclerView.Adapter<NegocioAdapter.ViewHolder>() {
+    val context= context
+    val manager: FragmentManager = (context as AppCompatActivity).supportFragmentManager
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -58,15 +63,14 @@ class NegocioAdapter (private val mList: List<negocio>): RecyclerView.Adapter<Ne
             holder.imageView.setImageResource(R.drawable.ic_person)
 
         holder.btn_verubicacion.setOnClickListener(View.OnClickListener {
-            val activity  = it.context as? AppCompatActivity
+
             val bundle = Bundle()
-            bundle.putString("latitud", "20.9803289")
-            bundle.putString("longitud", "-89.7730065")
+            bundle.putString("latitud", ItemsViewModel.latitud)
+            bundle.putString("longitud", ItemsViewModel.longitud)
             val fragmentapp: Fragment =
                 NegocioMapsFragment()
-            if (activity != null) {
-                ChangeFragment.changewhitData(NegocioMapsFragment(), activity.supportFragmentManager, bundle)
-            }
+                ChangeFragment.changewhitData(NegocioMapsFragment(), manager  , bundle)
+
         })
 
     }

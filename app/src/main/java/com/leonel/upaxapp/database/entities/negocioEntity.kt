@@ -21,6 +21,4 @@ data class negocioEntity(
     @ColumnInfo(name = "longitud") val longitud: String,
     @ColumnInfo(name = "urlImagen") val urlImagen: String
 )
-fun negocio.toDataBase() = negocioEntity(calle = calle,numero_exterior = numero_exterior,numero_interior = numero_interior,codigo_postal = codigo_postal
-    ,nombrePais = nombrePais,nombreEstado=nombreEstado ,nombreMunicipio=nombreMunicipio,nombreColonia=nombreColonia,
-    latitud=latitud,  longitud=longitud, urlImagen=urlImagen)
+fun negocio.toDataBase() = negocioEntity(calle = calle,numero_exterior = numero_exterior,numero_interior = numero_interior,codigo_postal = codigo_postal,nombrePais = nombrePais,nombreEstado=nombreEstado ,nombreMunicipio=nombreMunicipio,nombreColonia=nombreColonia,latitud=latitud,  longitud=longitud, urlImagen=urlImagen)
