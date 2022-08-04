@@ -15,7 +15,8 @@ data class negocio (
                     @SerializedName("nombreMunicipio") val nombreMunicipio: String,
                     @SerializedName("nombreColonia") val nombreColonia: String,
                     @SerializedName("latitud") val latitud: String,
-                    @SerializedName("longitud") val longitud: String
+                    @SerializedName("longitud") val longitud: String,
+                    @SerializedName("urlImagen") val urlImagen: String
 )
-fun negocio.add()=negocio(calle,numero_exterior,numero_interior,codigo_postal,nombrePais,nombreEstado,nombreMunicipio,nombreColonia,latitud,longitud)
-fun negocioEntity.add()=negocio(calle,numero_exterior,numero_interior,codigo_postal,nombrePais,nombreEstado,nombreMunicipio,nombreColonia,latitud,longitud)
+fun negocio.add()=negocio(calle,numero_exterior,numero_interior,codigo_postal,nombrePais,nombreEstado,nombreMunicipio,nombreColonia,latitud,longitud,urlImagen)
+fun negocioEntity.add()=negocio(calle,numero_exterior,numero_interior,codigo_postal,nombrePais,nombreEstado,nombreMunicipio,nombreColonia,latitud,longitud, urlImagen)

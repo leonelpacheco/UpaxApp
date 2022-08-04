@@ -3,6 +3,7 @@ package com.leonel.upaxapp.ui.datanegocio
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.leonel.upaxapp.database.entities.toDataBase
 import com.leonel.upaxapp.model.negocio
 import com.leonel.upaxapp.network.requestnegocio
 import com.leonel.upaxapp.repository.firestoreRepository
@@ -32,12 +33,12 @@ class DataNegocioViewModel @Inject constructor(private val repository: negocioRe
 
         val negocios = repository.getAllNegociosFromApi(requestneg)
         return negocios
-/*        return if(negocios.isNotEmpty()){
+        return if(negocios.isNotEmpty()){
             repository.clearnegocios()
-            // repositorytemp.insertnegocio(negocios.map { it.toDataBase() })
+            //repository.insertnegocio(negocios.map { it.toDataBase() })
             negocios
         }else{
             repository.getAllNegociosFromDatabase()
-        }*/
+        }
     }
 }

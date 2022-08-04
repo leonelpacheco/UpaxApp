@@ -2,8 +2,8 @@
     <string name="app_name">UpaxApp</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Leonel Pacheco</string>
+    <string name="nav_header_subtitle">Upax App</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -23,5 +23,16 @@
     <string name="itemuser_txt_email">Email</string>
     <string name="itemuser_txt_direccion">Dirección</string>
     <string name="formulario_etxt_empleado">Empleado</string>
+
+    <!--row_ubicacion-->
+    <string name="rowubicacion_txt_calle">C. 26</string>
+    <string name="rowubicacion_txt_exterior">199</string>
+    <string name="rowubicacion_txt_interior">916</string>
+    <string name="rowubicacion_txt_codigopostal">CP 97133</string>
+    <string name="rowubicacion_txt_colonia">COL. Altabrisa</string>
+    <string name="rowubicacion_txt_municipio">Mérida</string>
+    <string name="rowubicacion_txt_estado">Yucatán</string>
+    <string name="rowubicacion_txt_pais">México</string>
+    <string name="rowubicacion_btn_verubicacion">Ver Ubicación</string>
 
 </resources>

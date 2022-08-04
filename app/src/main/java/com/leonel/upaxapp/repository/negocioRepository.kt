@@ -9,9 +9,10 @@ import com.leonel.upaxapp.model.empleado
 import com.leonel.upaxapp.model.negocio
 import com.leonel.upaxapp.network.ApiService
 import com.leonel.upaxapp.network.requestnegocio
+import dagger.Module
 import javax.inject.Inject
 
-class negocioRepository @Inject constructor(private val api: ApiService)
+class negocioRepository @Inject constructor(private val api: ApiService, private val negociodaorep: empleadoDao)
 {
 
     suspend fun getAllNegociosFromApi(request: requestnegocio): List<negocio> {
@@ -19,16 +20,16 @@ class negocioRepository @Inject constructor(private val api: ApiService)
         return response.map { it.add() }
     }
 
-/*    suspend fun getAllNegociosFromDatabase():List<negocio>{
-        val response: List<negocioEntity> = negocioDao.getAllnegocios()
+   suspend fun getAllNegociosFromDatabase():List<negocio>{
+        val response: List<negocioEntity> = negociodaorep.getAllnegocios()
         return response.map { it.add() }
-    }*/
+    }
     //**********************
-/*    suspend fun insertnegocio(negocio: negocioEntity){
-        negocioDao.insertAll(negocio)
+    suspend fun insertnegocio(negocio: negocioEntity){
+        negociodaorep.insertAllnegocios(negocio)
     }
 
     suspend fun clearnegocios(){
-        negocioDao.deleteAllnegocios()
-    }*/
+        negociodaorep.deleteAllnegocios()
+    }
 }

@@ -12,6 +12,9 @@ import com.leonel.upaxapp.R
 import com.leonel.upaxapp.databinding.FragmentDataNegocioBinding
 import com.leonel.upaxapp.databinding.FragmentEmpleadoBinding
 import com.leonel.upaxapp.ui.dataempleado.EmpleadoViewModel
+import com.leonel.upaxapp.ui.imagestore.ImageStoreFragment
+import com.leonel.upaxapp.ui.imagestorelist.ImageStoreListFragment
+import com.leonel.upaxapp.utils.ChangeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,6 +37,8 @@ class DataNegocioFragment : Fragment() {
         val root: View = binding.root
 
         datanegocioViewModel.onCreate()
+
+
 
         return root
     }
