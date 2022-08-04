@@ -18,7 +18,7 @@ data class negocioEntity(
     @ColumnInfo(name = "nombreMunicipio") val nombreMunicipio: String?,
     @ColumnInfo(name = "nombreColonia") val nombreColonia: String?,
     @ColumnInfo(name = "latitud") val latitud: String?,
-    @ColumnInfo(name = "longitud") val longitud: String?,
-    @ColumnInfo(name = "urlImagen") val urlImagen: String?
+    @ColumnInfo(name = "longitud") val longitud: String?
+
 )
-fun negocio.toDataBase() = negocioEntity(calle = calle,numero_exterior = numero_exterior,numero_interior = numero_interior,codigo_postal = codigo_postal,nombrePais = nombrePais,nombreEstado=nombreEstado ,nombreMunicipio=nombreMunicipio,nombreColonia=nombreColonia,latitud=latitud,  longitud=longitud, urlImagen=urlImagen)
+fun negocio.toDataBase() = negocioEntity(calle = calle,numero_exterior = numero_exterior,numero_interior = numero_interior,codigo_postal = codigo_postal,nombrePais = nombrePais,nombreEstado=nombreEstado ,nombreMunicipio=nombreMunicipio,nombreColonia=nombreColonia,latitud=latitud,  longitud=longitud)

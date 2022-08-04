@@ -9,4 +9,7 @@ import retrofit2.http.POST
 interface ApiClient {
     @POST("comercioDetalleExamen")
     suspend fun getAllnegocios(@Body idZeusComercio: requestnegocio): Response<responsenegocios>
+
+    @POST("comercioDetalleExamen")
+    suspend fun getAllcomercio(@Body idZeusComercio: requestnegocio): Response<responsenegocios>
 }

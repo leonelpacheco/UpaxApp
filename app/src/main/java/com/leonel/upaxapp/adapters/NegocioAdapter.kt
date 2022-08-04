@@ -41,9 +41,6 @@ class NegocioAdapter (private val mList: List<negocio>, context:FragmentActivity
         val ItemsViewModel = mList[position]
 
         //if(ItemsViewModel.image.isNotEmpty())
-        var imageUri: Uri? =null
-        if (ItemsViewModel.urlImagen !=null)
-         imageUri = Uri.parse(ItemsViewModel.urlImagen)
         // sets the image to the imageview from our itemHolder class
         //holder.imageView.setImageResource(ItemsViewModel.poster_path)
 
@@ -58,11 +55,11 @@ class NegocioAdapter (private val mList: List<negocio>, context:FragmentActivity
         holder.txt_pais.text = ItemsViewModel.nombrePais
 
 
-        if(imageUri != null)
+/*        if(imageUri != null)
            // holder.imageView.setImageURI(imageUri)
         Glide.with(holder.itemView.getContext()).load(mList.get(position)).into(holder.imageView);
         else
-            holder.imageView.setImageResource(R.drawable.ic_person)
+            holder.imageView.setImageResource(R.drawable.ic_person)*/
 
         holder.btn_verubicacion.setOnClickListener(View.OnClickListener {
 
@@ -83,7 +80,7 @@ class NegocioAdapter (private val mList: List<negocio>, context:FragmentActivity
     }
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.imagennegocio)
+        //val imageView: ImageView = itemView.findViewById(R.id.imagennegocio)
         val txt_direccion: TextView = itemView.findViewById(R.id.txt_direccion)
         val txt_colonia: TextView = itemView.findViewById(R.id.txt_colonia)
         val txt_exterior: TextView = itemView.findViewById(R.id.txt_exterior)

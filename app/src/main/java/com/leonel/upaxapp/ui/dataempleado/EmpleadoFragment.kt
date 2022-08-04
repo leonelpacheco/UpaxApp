@@ -65,11 +65,17 @@ class EmpleadoFragment : Fragment() {
                 ||binding.txtEmail.text.isNullOrEmpty()
                 ||binding.txtDireccion.text.isNullOrEmpty()
             )
-                Toast.makeText(activity, "Faavor de llenar todos los campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Favor de llenar todos los campos", Toast.LENGTH_SHORT).show()
             else {
                 val empleadosave = empleado(-1,binding.txtNombre.text.toString(),binding.txtTelefono.text.toString(),
                     binding.txtEmail.text.toString(),binding.txtDireccion.text.toString(),imageUri.toString())
                 empleadoViewModel.onCreateEmpleado(empleadosave)
+
+                        binding.txtNombre.setText("")
+                        binding.txtTelefono.setText("")
+                        binding.txtEmail.setText("")
+                        binding.txtDireccion.setText("")
+                binding.imgImagenempleado.setImageResource(R.drawable.ic_image)
 
             }
         })

@@ -2,9 +2,8 @@ package com.leonel.upaxapp.model
 
 import com.google.gson.annotations.SerializedName
 import com.leonel.upaxapp.database.entities.comercioEntity
-import com.leonel.upaxapp.database.entities.negocioEntity
 
-data class Comercio (
+data class Comerciosave (
 
     @SerializedName("fiIdZeus") val fiIdZeus: String?,
     @SerializedName("fcIdComercio") val fcIdComercio: String?,
@@ -18,11 +17,9 @@ data class Comercio (
     @SerializedName("idSubcategoria") val idSubcategoria: String?,
     @SerializedName("idDisponibilidad") val idDisponibilidad: String?,
     @SerializedName("idEstatusLevantamiento") val idEstatusLevantamiento: String?,
-    @SerializedName("urlImagen") val urlImagen:  String?,
-    @SerializedName("direcciones") var direcciones: List<negocio>?
+    @SerializedName("urlImagen") val urlImagen:  String?
 )
-fun Comercio.add()=Comercio(fiIdZeus,fcIdComercio,nombre,descripcion,email,telefono,tipoComercio,idGiro,idCategoria,idSubcategoria,
-    idDisponibilidad, idEstatusLevantamiento,urlImagen,direcciones)
-/*
-fun comercioEntity.add()=Comercio(fiIdZeus,fcIdComercio,nombre,descripcion,email,telefono,tipoComercio,idGiro,idCategoria,idSubcategoria,
-    idDisponibilidad, idEstatusLevantamiento,urlImagen,null)*/
+fun Comerciosave.add()=Comerciosave(fiIdZeus,fcIdComercio,nombre,descripcion,email,telefono,tipoComercio,idGiro,idCategoria,idSubcategoria,
+    idDisponibilidad, idEstatusLevantamiento,urlImagen)
+fun comercioEntity.add()=Comerciosave(fiIdZeus,fcIdComercio,nombre,descripcion,email,telefono,tipoComercio,idGiro,idCategoria,idSubcategoria,
+    idDisponibilidad, idEstatusLevantamiento,urlImagen)

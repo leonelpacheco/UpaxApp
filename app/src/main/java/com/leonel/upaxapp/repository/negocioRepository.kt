@@ -1,19 +1,18 @@
 package com.leonel.upaxapp.repository
 
-import com.leonel.upaxapp.database.dao.empleadoDao
+import com.leonel.upaxapp.database.dao.comercioDao
 import com.leonel.upaxapp.database.dao.negocioDao
-import com.leonel.upaxapp.database.entities.empleadoEntity
+import com.leonel.upaxapp.database.entities.comercioEntity
 import com.leonel.upaxapp.database.entities.negocioEntity
 import com.leonel.upaxapp.model.Comercio
+import com.leonel.upaxapp.model.Comerciosave
 import com.leonel.upaxapp.model.add
-import com.leonel.upaxapp.model.empleado
 import com.leonel.upaxapp.model.negocio
 import com.leonel.upaxapp.network.ApiService
 import com.leonel.upaxapp.network.requestnegocio
-import dagger.Module
 import javax.inject.Inject
 
-class negocioRepository @Inject constructor(private val api: ApiService, private val negociodaorep: negocioDao)
+class negocioRepository @Inject constructor(private val api: ApiService, private val negociodaorep: negocioDao, private val comerciodao: comercioDao)
 {
 
     suspend fun getAllNegociosFromApi(request: requestnegocio): List<negocio> {
@@ -44,4 +43,36 @@ class negocioRepository @Inject constructor(private val api: ApiService, private
         } catch (e: Exception) {
         }
     }
+
+    //***************obtener Comercio*********
+    suspend fun getAllComercioFromApi(request: requestnegocio): Comercio? {
+
+        try {
+            val response: Comercio = api.getcomercio(request)!!
+            return response
+        } catch (e: Exception) {
+            return null
+        }
+
+
+    }
+    suspend fun insertcomercio(comercio: comercioEntity){
+        try {
+            comerciodao.insertAllcomercios(comercio)
+        } catch (e: Exception) {
+        }
+    }
+
+    suspend fun clearcomercio() {
+        try {
+            comerciodao.deleteAllcomercios()
+        } catch (e: Exception) {
+        }
+    }
+
+    suspend fun getAllComerciosFromDatabase(): List<Comerciosave> {
+        val response: List<comercioEntity> = comerciodao.getAllcomercios()
+        return response.map { it.add() }
+    }
+    //**************************
 }

@@ -4,10 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.leonel.upaxapp.database.entities.toDataBase
-import com.leonel.upaxapp.model.empleado
+import com.leonel.upaxapp.model.Comercio
+import com.leonel.upaxapp.model.Comerciosave
 import com.leonel.upaxapp.model.negocio
 import com.leonel.upaxapp.network.requestnegocio
-import com.leonel.upaxapp.repository.firestoreRepository
 import com.leonel.upaxapp.repository.negocioRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -16,7 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class DataNegocioViewModel @Inject constructor(private val repository: negocioRepository): ViewModel() {
     val isLoading = MutableLiveData<Boolean>()
-    val listnegocioModel = MutableLiveData<List<negocio>>()
+    val listnegocioModel = MutableLiveData<List<negocio>?>()
+    val listcomercioModel = MutableLiveData<Comercio>()
 
     fun onCreate(){
         viewModelScope.launch {
@@ -44,7 +45,51 @@ class DataNegocioViewModel @Inject constructor(private val repository: negocioRe
             repository.getAllNegociosFromDatabase()
         }
     }
+    //******************Obtener Comercio**************
 
+    fun onComercio(){
+        viewModelScope.launch {
+            isLoading.postValue(true)
+            val result= invokecomercio()
+            if (result!=null) {
+                listcomercioModel.postValue(result!!)
+                listnegocioModel.postValue(result.direcciones)
+                isLoading.postValue(false)
+            }
+            else
+                isLoading.postValue(false)
+
+        }
+    }
+    suspend fun invokecomercio(): Comercio{
+        val requestneg= requestnegocio(149010)
+
+        val comercio = repository.getAllComercioFromApi(requestneg)
+        return if(comercio!=null){
+            repository.clearcomercio()
+            repository.clearnegocios()
+            val savecomercio = Comerciosave(comercio.fiIdZeus,comercio.fcIdComercio,comercio.nombre,
+            comercio.descripcion,comercio.email,comercio.telefono,comercio.tipoComercio,comercio.idGiro,
+            comercio.idCategoria,comercio.idSubcategoria,comercio.idDisponibilidad,comercio.idEstatusLevantamiento,
+            comercio.urlImagen)
+            repository.insertcomercio(savecomercio.toDataBase())
+            comercio.direcciones?.let { repository.insertnegocio(it.map { it.toDataBase() }) }
+            comercio
+        }else{
+            val direcciones=repository.getAllNegociosFromDatabase()
+            val comercio = repository.getAllComerciosFromDatabase().get(0)
+            val enviarcomercio = Comercio(comercio.fiIdZeus,comercio.fcIdComercio,comercio.nombre,
+    comercio.descripcion,comercio.email,comercio.telefono,comercio.tipoComercio,comercio.idGiro,
+    comercio.idCategoria,comercio.idSubcategoria,comercio.idDisponibilidad,comercio.idEstatusLevantamiento,
+    comercio.urlImagen,direcciones)
+            return enviarcomercio
+
+        }
+    }
+
+
+
+    //**********************************************
     //*************Inserción manual para pruebas por fallo en api**********
 
  /*   fun insertarusuario(){

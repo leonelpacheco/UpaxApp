@@ -16,4 +16,12 @@ class ApiService @Inject constructor(private val api:ApiClient){
             response.body()?.comercio?.direcciones ?: emptyList()
         }
     }
+
+    suspend fun getcomercio(request: requestnegocio): Comercio? {
+        return withContext(Dispatchers.IO) {
+            val response = api.getAllcomercio(request)
+            Log.i("json",response.body().toString())
+            response.body()?.comercio ?:null
+        }
+    }
 }

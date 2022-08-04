@@ -34,5 +34,13 @@
     <string name="rowubicacion_txt_estado">Yucatán</string>
     <string name="rowubicacion_txt_pais">México</string>
     <string name="rowubicacion_btn_verubicacion">Ver Ubicación</string>
+    <string name="rowubicacion_txt_cp">C.P</string>
+
+    <!--fragment_data_negocio-->
+
+    <string name="datanegocio_txt_nombre"></string>
+    <string name="datanegocio_txt_idcomercio"></string>
+    <string name="datanegocio_txt_email"></string>
+    <string name="datanegocio_txt_telefono"></string>
 
 </resources>

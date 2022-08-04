@@ -23,6 +23,7 @@
                 android:id="@+id/imagennegocio"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/constraintLayout4"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/constraintLayout4"
@@ -42,14 +43,14 @@
                     android:id="@+id/btn_verubicacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="8dp"
                     android:backgroundTint="@color/white"
                     android:text="@string/rowubicacion_btn_verubicacion"
                     android:textColor="@color/design_default_color_primary"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/txt_pais" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_estado" />
 
                 <TextView
                     android:id="@+id/textView10"
@@ -81,6 +82,7 @@
                     android:id="@+id/txt_exterior"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
                     android:text="@string/rowubicacion_txt_exterior"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/txt_direccion"
@@ -96,28 +98,37 @@
                     app:layout_constraintTop_toTopOf="@+id/textView10" />
 
                 <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rowubicacion_txt_cp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_municipio" />
+
+                <TextView
                     android:id="@+id/txt_cp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
                     android:text="@string/rowubicacion_txt_codigopostal"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toEndOf="@+id/textView2"
+                    app:layout_constraintTop_toTopOf="@+id/textView2" />
 
                 <TextView
                     android:id="@+id/txt_municipio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
                     android:text="@string/rowubicacion_txt_municipio"
-                    app:layout_constraintStart_toEndOf="@+id/txt_colonia"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_direccion" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_colonia" />
 
                 <TextView
                     android:id="@+id/txt_estado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
+                    android:layout_marginStart="3dp"
                     android:text="@string/rowubicacion_txt_estado"
                     app:layout_constraintStart_toEndOf="@+id/txt_municipio"
                     app:layout_constraintTop_toTopOf="@+id/txt_municipio" />
@@ -126,9 +137,10 @@
                     android:id="@+id/txt_pais"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
                     android:text="@string/rowubicacion_txt_pais"
-                    app:layout_constraintStart_toStartOf="@+id/txt_colonia"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_colonia" />
+                    app:layout_constraintStart_toEndOf="@+id/txt_estado"
+                    app:layout_constraintTop_toTopOf="@+id/txt_estado" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.leonel.upaxapp.R
 import com.leonel.upaxapp.adapters.EmpleadoAdapter
 import com.leonel.upaxapp.adapters.NegocioAdapter
@@ -39,7 +40,7 @@ class DataNegocioFragment : Fragment() {
         _binding = FragmentDataNegocioBinding.inflate(inflater, container, false)
         val root: View = binding.root
         binding.rwlistnegocios.layoutManager= LinearLayoutManager(activity)
-        datanegocioViewModel.onCreate()
+        datanegocioViewModel.onComercio()
         //datanegocioViewModel.insertarusuario()
 
 
@@ -48,8 +49,16 @@ class DataNegocioFragment : Fragment() {
         }
 
         datanegocioViewModel.listnegocioModel.observe(viewLifecycleOwner){
-            val adapter = activity?.let { it1 -> NegocioAdapter(it, requireActivity()) }
+            val adapter = activity?.let { it1 -> it?.let { it2 -> NegocioAdapter(it2, requireActivity()) } }
             binding.rwlistnegocios.adapter= adapter
+        }
+
+        datanegocioViewModel.listcomercioModel.observe(viewLifecycleOwner){
+            binding.txtNombre.setText(it.nombre)
+            binding.txtEmail.setText(it.email)
+            binding.txtTelefonocomercio.setText(it.telefono)
+            binding.idcomercio.setText(it.fcIdComercio)
+            Glide.with(requireActivity()).load(it.urlImagen).into(binding.imageView);
         }
 
         return root
